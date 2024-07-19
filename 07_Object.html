@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object</title>
+    <style>
+        body {
+            background: #000;
+            font-size: 18px;
+            color: #fff;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Object</h1>
+
+    <script>
+        console.log("Create an object representing a book with properties like title, author, and year, and log the object to the console.");
+        console.log('Access and log the title and author properties of the book object.');
+        const books = {
+            title: "JavaScript ES6",
+            author: "Brendan Eich",
+            year: 2016
+        }
+
+        console.table(books);
+        console.log(books.title, " | ", books.author, " | ", books.year);
+        console.log('');
+
+
+
+
+
+
+        console.log("Add a method to the book object that returns a string with the book's title and author, and log the result of calling this Method.");
+        const books1 = {
+            title: "JavaScript ES6",
+            author: "Brendan Eich",
+            year: 2016,
+            getBook: function () {
+                console.log("Book Title -", this.title, " |  Author -", this.author);
+            }
+        }
+
+        books1.getBook()
+        console.log('');
+
+
+
+
+
+
+
+        console.log("Add a method to the book object that takes a parameter (year) and updates the book's year property, then log the Update Object");
+        const books2 = {
+            title: "JavaScript ES6",
+            author: "Brendan Eich",
+            year: 2016,
+            getBook: function () {
+                console.log("Book Title -", this.title, " |  Author -", this.author);
+            },
+            updateYear: function (year) {
+                this.year = year
+                console.log("Book Title -", this.title, " |  Year -", this.year);
+            }
+        }
+
+        books2.updateYear(2020)
+        console.log('');
+
+
+
+
+
+
+
+
+        console.log('Create a nested object representing a library with properties like name and books (an array of book objects), and log the Library Object to the Console');
+        const bookLibrary = [
+            {
+                title: "JavaScript ES6",
+                author: "Brendan Eich",
+                year: 2016,
+            },
+            {
+                title: "React for Frontend",
+                author: "Facebook",
+                year: 2015,
+            }
+        ]
+
+        console.table(bookLibrary);
+        console.log('');
+
+        console.log("Access and log the name of the library and the titles of all the books in the library.");
+        bookLibrary.map((book) => {
+            console.log(book.title);
+        })
+        console.log('');
+
+
+
+
+
+
+        console.log("Add a method to the book object that uses the this keyword to return a string with the book's title and year, and log the result of calling the Method.");
+        const books3 = {
+            title: "JavaScript ES6",
+            author: "Brendan Eich",
+            year: 2016,
+            getBook: function () {
+                console.log("Book Title -", this.title, " |  Author -", this.author, " |  Year -", this.year);
+            },
+        }
+
+        books3.getBook()
+        console.log('');
+
+
+
+
+
+
+        console.log("Use a for...in loop to iterate over the properties of the book object and log each property and its value.");
+        const books4 = {
+            title: "JavaScript ES6",
+            author: "Brendan Eich",
+            year: 2016
+        }
+
+        for (const key in books4) {
+            console.log(`${key} : ${books4[key]}`);
+        }
+        console.log('');
+
+
+
+        console.log("Use Object. keys and Object. values methods to log all the keys and values of the book object.");
+        const books5 = {
+            title: "JavaScript ES6",
+            author: "Brendan Eich",
+            year: 2016
+        }
+
+        console.log(Object.keys(books5))
+        console.log(Object.values(books5))
+    </script>
+</body>
+
+</html>
