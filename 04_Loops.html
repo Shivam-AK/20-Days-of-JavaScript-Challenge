@@ -70,11 +70,11 @@
         console.log('Write a program to calculate the factorial of a number using a do...while loop.');
         let n = 5
         let result = 1
-        while (1 < n) {
+        do {
             console.log(result);
             result *= n;
             n--
-        }
+        } while (1 < n);
         console.log(result);
         console.log('');
 
@@ -82,23 +82,24 @@
         console.log('Write a program to calculate the factorial of a number using a do...while loop.');
         let m = 1
         let result0 = 1
-        while (m <= 5) {
+        do {
             result0 *= m;
             console.log(result0);
             m++
-        }
+        } while (m <= 5);
         console.log('');
-
-
-        // function factorial(n) {
-        //     let result1 = 1
-        //     while (n > 1) {
-        //         result1 *= n
-        //         n--
-        //     }
-        //     return result1
-        // }
-        // console.log(factorial(5));
+        
+        
+        function factorial(n) {
+            let result1 = 1
+            while (n > 1) {
+                result1 *= n
+                n--
+            }
+            return result1
+        }
+        console.log(factorial(5));
+        console.log('');
 
 
 
@@ -110,7 +111,6 @@
             for (let j = 1; j <= 5; j++) {
                 star += '* '
                 console.log(star);
-                // console.log('*');
             }
         }
         console.log('');
