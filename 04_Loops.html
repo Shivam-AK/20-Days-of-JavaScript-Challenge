@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loops</title>
+    <style>
+        body {
+            background: #000;
+            font-size: 18px;
+            color: #fff;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Loops</h1>
+    <script>
+
+        console.log('Write a program to print numbers from 1 to 10 using a for loop.');
+        for (let i = 1; i <= 10; i++) {
+            console.log(i);
+        }
+        console.log('');
+
+
+        console.log('Write a program to print the multiplication table of 5 using a for loop.')
+        for (let i = 1; i <= 10; i++) {
+            console.log(5 * i);
+        }
+        console.log('');
+        console.log('');
+
+
+        console.log('Write a program to calculate the sum of numbers from 1 to 10 using a while loop.')
+        let num1 = 1
+        let total = null
+        while (num1 <= 10) {
+            total += num1
+            num1++
+            console.log(total);
+        }
+        console.log('');
+
+
+        console.log('Write a program to print numbers from 10 to 1 using a while loop.')
+        let num2 = 1
+        let total2 = 11
+        while (num2 < total2) {
+            // total2 -= num2
+            console.log(total2 - num2);
+            num2++
+        }
+        console.log('');
+        console.log('');
+
+
+
+        console.log('Write a program to print numbers from 1 to 5 using a do...while loop.');
+        let i = 1
+        while (i <= 5) {
+            console.log(i);
+            i++
+        }
+        console.log('');
+
+
+        console.log('Write a program to calculate the factorial of a number using a do...while loop.');
+        let n = 5
+        let result = 1
+        while (1 < n) {
+            console.log(result);
+            result *= n;
+            n--
+        }
+        console.log(result);
+        console.log('');
+
+
+        console.log('Write a program to calculate the factorial of a number using a do...while loop.');
+        let m = 1
+        let result0 = 1
+        while (m <= 5) {
+            result0 *= m;
+            console.log(result0);
+            m++
+        }
+        console.log('');
+
+
+        // function factorial(n) {
+        //     let result1 = 1
+        //     while (n > 1) {
+        //         result1 *= n
+        //         n--
+        //     }
+        //     return result1
+        // }
+        // console.log(factorial(5));
+
+
+
+
+        console.log('Write a program to print a pattern using nested for loops:');
+
+        for (let i = 1; i <= 1; i++) {
+            let star = ''
+            for (let j = 1; j <= 5; j++) {
+                star += '* '
+                console.log(star);
+                // console.log('*');
+            }
+        }
+        console.log('');
+
+
+
+        console.log('Write a program to print numbers from 1 to 10, but skip the number 5 using the continue statement.');
+        for (let i = 1; i <= 10; i++) {
+            if (i === 5) {
+                continue;
+            }
+            console.log(i);
+        }
+        console.log('');
+
+
+
+
+
+        console.log('Write a program to print numbers from 1 to 10, but stop the loop when the number is 7 using the break statement');
+
+        for (let i = 1; i <= 10; i++) {
+            console.log(i);
+            if (i === 7) {
+                break
+            }
+        }
+    </script>
+</body>
+
+</html>

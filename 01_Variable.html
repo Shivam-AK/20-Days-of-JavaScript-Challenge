@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,4 +9,100 @@
 <body>
     
 </body>
+=======
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Variable</title>
+</head>
+
+<body>
+
+    <script>
+        var number = 47
+        let string = 'Shivam'
+        const boolean = true
+        const array = [0, 1, 2]
+        const object = {
+            firstName: 'Rohan',
+            lastName: 'Singh',
+        }
+
+        const Null = null
+        const Undefined = undefined
+        const nan = NaN
+        const bigInt = BigInt(123456)
+        const symbol = Symbol('Shivam')
+
+
+        console.table({
+            'number': number,
+            'string': string,
+            'boolean': boolean,
+            'array': array,
+            'object': object,
+            'Null': Null,
+            'Undefined': Undefined,
+            'nan': nan,
+            'bigInt': bigInt,
+            'symbol': symbol,
+        })
+        console.log('')
+
+
+        console.table({
+            'typeof number': typeof number,
+            'typeof string': typeof string,
+            'typeof boolean': typeof boolean,
+            'typeof array': typeof array,
+            'typeof object': typeof object,
+            'typeof Null': typeof Null,
+            'typeof Undefined': typeof Undefined,
+            'typeof nan': typeof nan,
+            'typeof bigInt': typeof bigInt,
+            'typeof symbol': typeof symbol,
+        })
+        console.log('')
+
+
+        let username = 'Shivam Kumar'
+        console.log(username)
+
+        // let username = 'Chatan' // ERROR SyntaxError: Identifier 'username' has already been declared
+
+        username = 'Rohan Singh'
+        console.log(username)
+
+
+
+        const num = 100
+        console.log(num)
+
+        // const num = 200 // ERROR SyntaxError: Identifier 'num' has already been declared
+        // num = 200 // ERROR Assignment to constant variable.
+        // console.log(num);
+
+
+        var user = 'Chetan'
+        console.log(user)
+
+        // const user = 'Rohan' // ERROR SyntaxError: Identifier 'user' has already been declared
+        // let user = 'Rohan' // ERROR SyntaxError: Identifier 'user' has already been declared
+        console.log(user)
+
+
+        // const newUser = 'Rohan'
+        let newUser = 'Rohan'
+        console.log(newUser)
+
+        // newUser = 'Chetan' // TypeError: Assignment to constant variable.
+        newUser = 'Chetan'
+        console.log(newUser)
+    </script>
+</body>
+
+>>>>>>> 439c00b (Create Variable File)
 </html>
