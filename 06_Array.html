@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array</title>
+    <style>
+        body {
+            background: #000;
+            font-size: 18px;
+            color: #fff;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Array</h1>
+
+    <script>
+
+        console.log('Create an array of numbers from 1 to 5 and log the array to the console.');
+        let array = [1, 2, 3, 4, 5]
+
+        console.table(array);
+        console.log('');
+
+
+
+
+        console.log('Access the first and last elements of the array and log them to the console.');
+
+        console.log(array[0]);
+        console.log(array[array.length - 1]);
+        console.log('');
+
+
+
+
+
+
+        console.log('Use the push method to add a new number to the end of the array and log the updated array.');
+
+        console.log('Return Last Push (Add) Value', array.push(6))
+        console.log(array);
+        console.log('');
+
+
+
+
+
+        console.log('Use the pop method to remove the last element from the array and log the updated array.');
+
+        console.log('Return Last Pop (Delete) Value', array.pop())
+        console.log(array);
+        console.log('');
+
+
+
+
+
+        console.log('Use the shift method to remove the first element from the array and log the updated array.');
+
+        console.log('Return First Shift (Delete) Value', array.shift())
+        console.log(array);
+        console.log('');
+
+
+
+
+
+        console.log('Use the unshift method to add a new number to the beginning of the array and log the updated array.');
+
+        console.log('Return First unshift (First Add) Length', array.unshift(1));
+        console.log(array);
+        console.log('');
+
+
+
+
+
+
+        console.log('Use the map method to create a new array where each number is doubled and log the new array.');
+
+        const newArray = array.map(num => num * 2)
+        console.log(newArray);
+        console.log('');
+
+
+
+
+
+        console.log('Use the filter method to create a new array with only even numbers and log the new array.');
+        const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+        const evenNumber = numbers.filter(num => num % 2 === 0)
+        console.log(evenNumber);
+        console.log('');
+
+
+
+
+
+        console.log('Use the reduce method to calculate the sum of all numbers in the array and log the result.');
+
+        const total = array.reduce((prevValue, curValue) => prevValue + curValue)
+        console.log(total);
+        console.log('');
+
+
+
+
+
+        console.log('Use a for loop to iterate over the array and log each element to the console.');
+
+        for (let i = 0; i < array.length; i++) {
+            console.log(array[i]);
+        }
+        console.log('');
+
+
+        console.log('Use the forEach method to iterate over the array and log each element to the console.');
+        array.forEach(element => {
+            console.log(element);
+        });
+        console.log('');
+
+
+
+
+
+        console.log('Create a two-dimensional array (matrix) and log the entire array to the console.');
+
+        const myArray = [['Shivam'], ['Rohan'], ['Chetan']]
+        const matrix = [
+            [1, 2, 3],
+            [4, 5, 6],
+            [7, 8, 9]
+        ];
+
+        console.log(matrix);
+        console.log(myArray);
+        console.log('');
+
+
+
+
+
+        console.log('Access and log a specific element from the two-dimensional array.');
+
+        console.log(matrix[0][1]);
+        console.log(myArray[2][0]);
+        console.log(myArray[0][0]);
+
+    </script>
+</body>
+
+</html>
