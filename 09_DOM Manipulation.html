@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Manipulation</title>
+    <style>
+        body {
+            background: #000;
+            font-size: 18px;
+            color: #fff;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        button {
+            padding: 10px 20px;
+            border-radius: 15px;
+            font-size: 18px;
+        }
+
+        img {
+            border: 3px solid yellow;
+            border-radius: 30px;
+        }
+    </style>
+</head>
+
+<body id="body">
+    <h1>DOM Manipulation</h1>
+
+    <h2 id="heading">DOM</h2>
+    <h2 class="heading">DOM</h2>
+
+    <h3>Deleted Element</h3>
+
+    <ol></ol>
+
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </ul>
+
+    <img alt="DashBoard Image" width="300"><br>
+
+    <button>Change Text</button>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima, praesentium.</p>
+
+    <script>
+        console.log('Select an HTML element by its ID and change its text content.');
+
+        const h2Sid = document.getElementById('heading')
+        console.log(h2Sid);
+        h2Sid.textContent = 'DOM Manipulation'
+        console.log('');
+
+
+
+
+
+        console.log('Select an HTML element by its class and change its background color.');
+
+        const h2Class = document.getElementsByClassName('heading')
+        console.log(h2Class);
+        h2Class[0].style.backgroundColor = 'gray'
+        console.log('');
+
+
+
+
+
+
+        console.log('Create a new div element with some text content and append it to the body.');
+
+        const body = document.getElementById('body')
+        const div = document.createElement('div')
+        div.appendChild(document.createTextNode("Div Created"))
+        body.append(div)
+        console.log(div);
+        console.log('');
+
+
+
+
+
+        console.log('Create a new li element and add it to an existing u1 list.');
+
+        const ol = document.querySelector('ol')
+        const li = document.createElement('li')
+        li.append(document.createTextNode("New LI"))
+        ol.append(li)
+        console.log(li);
+        console.log('');
+
+
+
+
+
+
+        // 'Select an HTML element and remove it from the DOM.
+        document.querySelector('h3').remove()
+
+
+
+
+
+
+        console.log('Remove the last child of a specific HTML element..');
+
+        const ul = document.querySelector('ul')
+        ul.removeChild(document.querySelector('ul li:last-child'))
+        const nthChild = document.querySelector('ul li:nth-child(2)')
+        console.log(nthChild);
+        ul.removeChild(nthChild)
+        console.log('');
+
+
+
+
+
+
+        // 'Select an HTML element and change one of its attributes (e.g., src of an img tag).
+        const img = document.querySelector('img')
+        img.setAttribute('src', 'original.jpg')
+
+
+
+
+
+
+        // Add a click event listener to a button that changes the text content of a paragraph.
+        const button = document.querySelector('button')
+        const p = document.querySelector('p')
+
+        button.addEventListener('click', () => {
+            p.textContent = 'Button Clicked'
+        })
+
+
+
+
+
+
+        // 'Add a mouseover event listener to an element that changes its border color.'
+        const img2 = document.querySelector('img')
+        img2.addEventListener('mouseover', () => {
+            img2.style.borderColor = 'salmon'
+        })
+        img2.addEventListener('mouseout', () => {
+            img2.style.borderColor = 'yellow'
+        })
+    </script>
+</body>
+
+</html>
