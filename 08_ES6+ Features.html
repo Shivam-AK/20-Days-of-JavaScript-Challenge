@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=`">
+    <title>ES6+ Features</title>
+    <style>
+        body {
+            background: #000;
+            font-size: 18px;
+            color: #fff;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>ES6+ Features</h1>
+
+    <script>
+
+        console.log("Use template literals to create a string that includes variables for a person's name and age, and log the string to the Console");
+
+        const username = 'Shivam Kumar'
+        const age = 24
+        console.log(`Hello, My Name is ${username} and I'm ${age} Years old`);
+        console.log('');
+
+
+
+
+        console.log('Create a multi-line string using template literals and log it to the console.');
+
+        console.log(`First Line.
+        Second Line
+        Third Line`);
+        console.log('');
+
+
+
+
+
+        console.log('Use array destructuring to extract the first and second elements from an array of numbers and log them to the Console');
+
+        const array = ['a', 'b', 'c', 'd', 'e']
+        const [first, second, , , five] = array
+        console.log(array);
+        console.log(first);
+        console.log(second);
+        console.log(five);
+        console.log('');
+
+
+
+
+
+        console.log('Use object destructuring to extract the title and author from a book object and log them to the console.');
+
+        const book = { title: 'JavaScript Mastery', author: "Brindan Eich" }
+
+        const { title, author } = book
+        console.log(book);
+        console.log(title);
+        console.log(author);
+        console.log('');
+
+
+
+
+
+        console.log('Use the spread operator to create a new array that includes all elements of an existing array plus additional elements, and I the new array to the console.');
+
+
+        const originalArray = [1, 2, 3, 4, 5]
+        console.log(originalArray);
+        const newArray = [...originalArray, 6, 7, 8, 9]
+        console.log(newArray);
+        console.log('');
+
+
+
+
+
+        console.log('Use the rest operator in a function to accept an arbitrary number of arguments, sum them, and return the result.');
+
+        function sum(...num) {
+            let total = 0;
+            for (const arg of num) {
+                total += arg;
+            }
+            console.log(num);
+            return total;
+        }
+
+        function newSum(...numbers) {
+            console.log(numbers);
+            return numbers.reduce((total, num) => total + num);
+        }
+
+
+        console.log(sum(1, 2, 3));
+        console.log(newSum(1, 2, 3, 4, 5));
+        console.log('');
+
+
+
+
+
+
+        console.log('Write a function that takes two parameters and returns their product, with the second parameter having a default value of 1. Log the result of calling this function with and without the second parameter.');
+
+        function multiply(a, b = 1) {
+            return a * b
+        }
+
+        console.log(multiply(5, 5))
+
+        console.log(multiply(5))
+        console.log('');
+
+
+
+
+
+        console.log('Use enhanced object literals to create an object with methods and properties, and log the object to the console.');
+
+        const name = "Shivam Kumar"
+        const objectLiterals = {
+            name,
+            age: 24,
+
+            greet() {
+                console.log(`Hello, my name is ${this.name} and I am ${this.age} years old.`);
+            },
+            updateAge(newAge) {
+                this.age = newAge;
+                console.log(`My age is now ${this.age}.`);
+            }
+        }
+
+        console.log(objectLiterals.name)
+        console.log(objectLiterals.age)
+
+        objectLiterals.greet()
+        objectLiterals.updateAge(23)
+        console.log('');
+
+
+
+
+
+
+        console.log('Create an object with computed property names based on variables and log the object to the console.');
+
+        const baseKey = 'base';
+        const multiplierKey = 'multiplier';
+        const resultKey = 'result';
+
+        const dynamicObject = {
+            [baseKey]: 5,
+            [multiplierKey]: 10,
+            [resultKey]: function () {
+                return this[baseKey] * this[multiplierKey];
+            }
+        };
+
+        console.log("Dynamic Object:", dynamicObject);
+
+        console.log("Base Value:", dynamicObject.base);
+        console.log("Multiplier:", dynamicObject[multiplierKey]);
+
+        console.log("Result:", dynamicObject[resultKey]());
+        console.log("Result:", dynamicObject.result());
+
+    </script>
+</body>
+
+</html>
