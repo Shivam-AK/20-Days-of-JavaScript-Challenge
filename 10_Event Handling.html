@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Handling</title>
+    <style>
+        body {
+            background: #000;
+            font-size: 18px;
+            color: #fff;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 17px;
+            border-radius: 10px;
+            border-width: 5px;
+            border-color: cyan;
+        }
+
+        input,
+        select {
+            padding: 5px;
+            font-size: 20px;
+        }
+
+        .parent {
+            width: 300px;
+            height: 300px;
+            background: crimson;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Event Handling</h1>
+
+    <button id="btn1">1 Button</button>
+    <p id="text1">1 Paragraph</p>
+
+    <label for="keyboard">On Key Down</label>
+    <input type="text" id="keyboard">
+    <p style="display: inline;" id="key"></p><br><br>
+
+    <label for="value">On Key Press</label>
+    <input type="text" id="value">
+    <p style="display: inline;" id="text"></p><br><br>
+
+    <label for="value">On Value Change</label>
+    <select id="onChange">
+        <option value="one">One</option>
+        <option value="two">Two</option>
+        <option value="three">Three</option>
+        <option value="four">Four</option>
+    </select>
+    <p style="display: inline;" id="onChangeValue"></p><br><br>
+
+
+    <img src="original.jpg" id="image1" alt="Dashboard" width="400px">
+
+    <form id="submitForm">
+        <label for="name">Name</label>
+        <input type="text" name="name" id="name"> <br><br>
+        <label for="age">Age</label>
+        <input type="text" name="age" id="age"><br><br>
+        <label for="city">City</label>
+        <input type="text" name="city" id="city"><br><br>
+
+        <input type="submit" value="Submit">
+    </form>
+
+    <ol>
+        <li>One</li>
+        <li>Two</li>
+        <li>Three</li>
+        <li>Four</li>
+    </ol>
+
+    <div class="parent">
+        <div class="child">Child
+        </div>
+    </div>
+    <script>
+        // Add a click event listener to a button that changes the text content of a paragraph.
+
+        document.getElementById('btn1').addEventListener('click', () => {
+            document.getElementById('text1').textContent = 'Button Clicked'
+        })
+
+
+
+
+
+
+
+        // Add a double-click event listener to an image that toggles its visibility.
+
+        document.getElementById('image1').addEventListener('dblclick', e => {
+            console.log(e.target.style.opacity)
+            if (e.target.style.opacity === '' || e.target.style.opacity === '1') {
+                e.target.style.opacity = 0
+                console.log(true);
+            } else {
+                e.target.style.opacity = 1
+                console.log(false);
+            }
+        })
+
+
+
+
+
+
+
+        // Add a mouseover event listener to an element that changes its background color.
+        // Add a mouseout event listener to an element that resets its background color.
+        document.getElementById('text1').addEventListener('mouseover', e => {
+            e.target.style.backgroundColor = 'brown'
+        })
+        document.getElementById('text1').addEventListener('mouseout', e => {
+            e.target.style.backgroundColor = ''
+        })
+
+
+
+
+
+
+
+        // Add a keydown event listener to an input field that logs the key pressed to the console.
+
+        document.getElementById('keyboard').addEventListener('keydown', e => {
+            document.getElementById('key').textContent = e.key
+        })
+
+
+
+
+
+
+        // Add a keyup event listener to an input field that displays the current value in a paragraph.
+
+        document.getElementById('value').addEventListener('keyup', e => {
+            document.getElementById('text').textContent = e.target.value
+        })
+
+
+
+
+
+
+        // Add a submit event listener to a form that prevents the default submission and log the form data to the console.
+
+        const form = document.querySelector('#submitForm');
+
+        form.addEventListener('submit', e => {
+            e.preventDefault()
+            // Create a FormData object from the form
+            const formData = new FormData(form);
+            console.log(Object.fromEntries(formData.entries()));
+
+            for (let [key, value] of formData.entries()) {
+                console.log(`${key}: ${value}`);
+            }
+
+        })
+
+
+
+
+
+
+
+        // Add a change event listener to a select dropdown that displays the selected value in a paragraph.
+
+        document.getElementById('onChange').addEventListener('change', (e) => {
+            console.log(e.target.value);
+            document.getElementById('onChangeValue').textContent = e.target.value
+        })
+
+
+
+
+
+
+
+        // Add a click event listener to a list that logs the text content of the clicked list item using event delegation.
+
+        document.querySelector('ol').addEventListener('click', (event) => {
+            if (event.target && event.target.nodeName === 'LI') {
+                console.log(event.target.textContent); // Log the text content of the clicked list item
+            }
+        });
+
+
+
+
+
+
+        // Add an event listener to a parent element that listens for events from dynamically added child elements.
+        const parent = document.querySelector('.parent');
+
+        parent.addEventListener('click', (e) => {
+
+            const child = document.createElement('div')
+            child.append(document.createTextNode('Child'))
+            child.classList.add('child')
+
+            parent.append(child)
+        });
+
+    </script>
+</body>
+
+</html>
