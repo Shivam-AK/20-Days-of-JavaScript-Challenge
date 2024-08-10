@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Recursion</title>
+  <style>
+    body {
+      background: #000;
+      font-size: 18px;
+      color: #fff;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Recursion</h1>
+
+  <script>
+
+    // Write a recursive function to calculate the factorial of a number. Log the result for a few test cases.
+    // debugger
+    function calcFactorial(n) {
+      if (n === 0 || n === 1) {
+        return 1
+      } else {
+        const factorialNum = calcFactorial(n - 1)
+        return n * factorialNum
+      }
+    }
+
+    console.log(calcFactorial(5))
+    console.log(calcFactorial(0))
+    console.log('')
+
+
+
+
+    function factorial(n) {
+      if (n === 0 || n === 1) {
+        return 1
+      } else {
+        return n * factorial(n - 1)
+      }
+    }
+
+    console.log(factorial(5))
+    console.log(factorial(1))
+    console.log('')
+
+
+
+
+
+
+    // Write a recursive function to calculate the nth Fibonacci number. Log the result for a few test cases.
+    // debugger
+    const fibonacciNum = []
+    function calcFibonacci(a, b, n) {
+      if (n === 0) {
+        return
+      }
+      fibonacciNum.push(a)
+      calcFibonacci(b, a + b, n - 1)
+      return fibonacciNum
+    }
+
+    console.log(calcFibonacci(0, 1, 8))
+    console.log('')
+
+
+
+
+    function fibonacci(n) {
+      if (n <= 1) {
+        return n
+      } else {
+        return fibonacci(n - 1) + fibonacci(n - 2)
+      }
+    }
+    console.log(fibonacci(7))
+    console.log(fibonacci(8))
+    console.log('')
+
+
+
+
+
+
+
+
+
+
+    // Write a recursive function to find the sum of all elements in an array. Log the result for a few test cases.
+    // debugger
+    const array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    console.log(array)
+
+    function sumArray(array) {
+      if (array.length === 0) {
+        return 0
+      }
+      return array[0] + sumArray(array.slice(1))
+    }
+
+    console.log(sumArray(array))
+    console.log('')
+
+
+
+
+
+
+
+
+
+    // Write a recursive function to find the maximum element in an array. Log the result for a few test cases.
+    // debugger
+    const arrayMax = [10, 20, 30, 40, 500, 60, 70, 80, 90, 100]
+    console.log(arrayMax)
+
+    function findMaxValue(arrayMax) {
+      if (arrayMax.length === 1) {
+        return arrayMax[0]
+      }
+      return Math.max(arrayMax[0], findMaxValue(arrayMax.slice(1)))
+    }
+
+    console.log(findMaxValue(arrayMax))
+    console.log('')
+
+
+
+
+
+
+
+
+
+    // Write a recursive function to reverse a string. Log the result for a few test cases.
+    // debugger
+    function reverseString(string) {
+      if (string.length === 0) {
+        return ''
+      }
+      return string[string.length - 1] + reverseString(string.slice(0, -1))
+    }
+
+    console.log(reverseString('Hello World'))
+    console.log('')
+
+
+
+
+
+
+
+
+    // Write a recursive function to check if a string is a palindrome. Log the result for a few test cases.
+    // debugger
+    function palindromeString(string) {
+      if (string.length <= 1) {
+        return true
+      }
+      if (string[0] !== string[string.length - 1]) {
+        return false
+      }
+      return palindromeString(string.slice(1, -1))
+    }
+
+    console.log(palindromeString('racecar'))
+    console.log(palindromeString('level'))
+    console.log(palindromeString('hello'))
+    console.log('')
+
+
+
+
+
+
+
+
+
+    // Write a recursive function to perform a binary search on a sorted array. Log the index of the target element for a few test cases.
+    // debugger
+    const sortedArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+    const target = 8
+
+    function binarySearch(arr, target, start, end) {
+      if (start > end) return -1
+
+      const mid = Math.floor((start + end) / 2)
+      if (arr[mid] === target) return mid
+
+      else if (target < arr[mid]) {
+        return binarySearch(arr, target, start, mid - 1) // left half
+      }
+      else {
+        return binarySearch(arr, target, mid + 1, end) // right half
+      }
+    }
+    console.log(sortedArray)
+    console.log(target, ':', binarySearch(sortedArray, target, 0, sortedArray.length))
+    console.log('')
+
+
+
+
+    // debugger
+    function binarySearch1(arr, target, start, end) {
+      if (start > end) return -1
+
+      let mid = Math.floor((start + end) / 2)
+      if (arr[mid] === target) return mid
+
+      if (arr[mid] > target) {
+        return binarySearch1(arr, target, start, mid - 1) // left half
+      } else {
+        return binarySearch1(arr, target, mid + 1, end) // right half
+      }
+    }
+
+    let arr = [1, 3, 5, 7, 9, 11, 13, 15]
+    let targets = [5, 15, 1, 10]
+
+    console.log(arr)
+    targets.forEach(target => {
+      let index = binarySearch1(arr, target, 0, arr.length - 1)
+      if (index !== -1) {
+        console.log(`Element ${target} found at index ${index}`)
+      } else {
+        console.log(`Element ${target} not found in the array`)
+      }
+    })
+    console.log('')
+
+
+
+
+
+
+
+
+    // Write a recursive function to count the occurrences of a target element in an array. Log the result for a few test cases.
+
+    const arrayCount = [1, 2, 3, 4, 5, 2, 3, 4, 5, 6, 2, 3, 4, 5]
+
+    function countOccurrences(arrayCount, targetCount, index = 0, count = 0) {
+      if (index === arrayCount.length) {
+        return count
+      }
+      if (arrayCount[index] === targetCount) {
+        return countOccurrences(arrayCount, targetCount, index + 1, count + 1)
+      } else {
+        return countOccurrences(arrayCount, targetCount, index + 1, count)
+      }
+    }
+
+    console.log(arrayCount)
+    console.log(2, ':', countOccurrences(arrayCount, 2))
+    console.log(7, ':', countOccurrences(arrayCount, 7))
+    console.log('')
+
+
+
+
+
+
+
+
+
+    // Write a recursive function to perform an in-order traversal of a binary tree. Log the nodes as they are visited.
+
+
+    // Write a recursive function to calculate the depth of a binary tree. Log the result for a few test cases.
+
+
+
+  </script>
+</body>
+
+</html>
