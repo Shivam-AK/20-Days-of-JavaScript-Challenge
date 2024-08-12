@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Data Structures</title>
+  <style>
+    body {
+      background: #000;
+      font-size: 18px;
+      color: #fff;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Data Structures</h1>
+
+  <script>
+
+    // Implement a Node class to represent an element in a linked list with properties value and next.
+
+    class Node {
+      constructor(value) {
+        this.value = value // The value stored in the node
+        this.next = null   // Pointer to the next node in the list, initially set to null
+      }
+    }
+
+    let firstNode = new Node(10)
+    let secondNode = new Node(20)
+    firstNode.next = secondNode
+
+    console.log(firstNode) // Node { value: 10, next: Node { value: 20, next: null } }
+    console.log(secondNode) // Node { value: 20, next: null }
+    console.log('')
+
+
+
+
+
+
+
+    // Implement a LinkedList class with methods to add a node to the end, remove a node from the end, and display all nodes.
+
+
+    class LinkedList {
+      constructor() {
+        this.head = null  // Pointer to the first node in the list, initially set to null
+      }
+
+      // Add a node to the end of the list
+      add(value) {
+        let newNode = { value: value, next: null }
+        // console.log(newNode, this.head)
+
+        if (!this.head) {
+          this.head = newNode
+
+        } else {
+          let currentNode = this.head
+
+          while (currentNode.next) {
+            currentNode = currentNode.next
+          }
+          currentNode.next = newNode
+        }
+      }
+
+      // Remove a node from the end of the list
+      removeFromEnd() {
+        if (!this.head) {
+          console.log('List is empty')
+          return
+        }
+
+        if (!this.head.next) {
+          this.head = null
+        } else {
+          let currentNode = this.head
+          while (currentNode.next.next) {
+            currentNode = currentNode.next
+          }
+          currentNode.next = null
+        }
+      }
+    }
+
+    let linkedList = new LinkedList()
+    linkedList.add(10)
+    linkedList.add(20)
+    linkedList.add(30)
+    linkedList.add(40)
+    linkedList.add(50)
+
+    console.log(linkedList.head)
+
+    console.log('Original Linked List:')
+    let currentNode = linkedList.head
+    while (currentNode) {
+      console.log(currentNode.value)
+      currentNode = currentNode.next
+    }
+
+    linkedList.removeFromEnd()
+    console.log('After removing from end:')
+    currentNode = linkedList.head
+    while (currentNode) {
+      console.log(currentNode.value)
+      currentNode = currentNode.next
+    }
+
+    console.log('')
+
+
+
+
+
+
+
+
+    // Implement a Stack class with methods push (add element), pop (remove element), and peek (view the to element).
+
+    class Stack {
+      constructor() {
+        this.items = []
+      }
+      // Add an element to the top of the stack
+      push(item) {
+        this.items.push(item)
+      }
+      // Remove and return the top element from the stack
+      pop() {
+        return this.items.pop()
+      }
+      // Display all elements in the stack
+      display() {
+        for (let i = 0; i < this.items.length; i++) {
+          console.log(this.items[i])
+        }
+      }
+    }
+
+    let stack = new Stack()
+    stack.push(100)
+    stack.push(200)
+    stack.push(300)
+    stack.push(400)
+    stack.push(500)
+
+    console.log(stack.items)
+
+    console.log('Original Stack:')
+    stack.display()
+
+    console.log('After removing elements:')
+    stack.pop()
+    stack.pop()
+    stack.display()
+    console.log('')
+
+
+
+
+
+
+    // Use the Stack class to reverse a string by pushing all characters onto the stack and then popping them off.
+
+    function reverseString(str) {
+      let stack = new Stack()
+      let reversedString = ''
+      for (let char of str) {
+        stack.push(char)
+      }
+      while (stack.items.length > 0) {
+        reversedString += stack.pop()
+      }
+      return reversedString
+    }
+    console.log(reverseString('Hello World!'))
+    console.log('')
+
+
+  </script>
+</body>
+
+</html>
