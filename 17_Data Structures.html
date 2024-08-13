@@ -23,18 +23,37 @@
     // Implement a Node class to represent an element in a linked list with properties value and next.
 
     class Node {
-      constructor(value) {
-        this.value = value // The value stored in the node
-        this.next = null   // Pointer to the next node in the list, initially set to null
+      constructor() {
+        this.head = null   // Pointer to the next node in the list, initially set to null
+      }
+
+      // Add a node to the end of the list
+      addItem(value) {
+        let newNode = { value: value, next: null }
+
+        if (!this.head) {
+          this.head = newNode
+        } else {
+          let curNode = this.head
+          console.log('Current Node : ', curNode)
+
+          while (curNode.next) {
+            curNode = curNode.next
+          }
+          curNode.next = newNode
+        }
+
+        // console.log('End Head : ', this.head);
       }
     }
 
-    let firstNode = new Node(10)
-    let secondNode = new Node(20)
-    firstNode.next = secondNode
+    let myNode = new Node()
+    myNode.addItem(10)
+    console.log(myNode.head) // Node { value: 10, next: null }
 
-    console.log(firstNode) // Node { value: 10, next: Node { value: 20, next: null } }
-    console.log(secondNode) // Node { value: 20, next: null }
+    myNode.addItem(20)
+    console.log(myNode.head) // Node { value: 10, next: Node { value: 20, next: null } }
+    console.log('')
     console.log('')
 
 
@@ -54,18 +73,19 @@
       // Add a node to the end of the list
       add(value) {
         let newNode = { value: value, next: null }
-        // console.log(newNode, this.head)
+        // console.log(`Value :`, value, 'oldHead :', this.head)
 
         if (!this.head) {
           this.head = newNode
-
         } else {
-          let currentNode = this.head
+          let curNode = this.head
 
-          while (currentNode.next) {
-            currentNode = currentNode.next
+          // console.log('Value :', value, 'Current :', curNode, 'BeforeN :', curNode.next)
+          while (curNode.next) {
+            curNode = curNode.next
           }
-          currentNode.next = newNode
+          // console.log('Value :', value, 'Current :', curNode, 'AfterN :', curNode.next)
+          curNode.next = newNode
         }
       }
 
@@ -105,13 +125,13 @@
     }
 
     linkedList.removeFromEnd()
+    linkedList.removeFromEnd()
     console.log('After removing from end:')
     currentNode = linkedList.head
     while (currentNode) {
       console.log(currentNode.value)
       currentNode = currentNode.next
     }
-
     console.log('')
 
 
@@ -137,8 +157,8 @@
       }
       // Display all elements in the stack
       display() {
-        for (let i = 0; i < this.items.length; i++) {
-          console.log(this.items[i])
+        for (const value of this.items) {
+          console.log(value)
         }
       }
     }
@@ -174,6 +194,7 @@
       for (let char of str) {
         stack.push(char)
       }
+      console.log(stack.items)
       while (stack.items.length > 0) {
         reversedString += stack.pop()
       }
@@ -182,6 +203,257 @@
     console.log(reverseString('Hello World!'))
     console.log('')
 
+
+
+
+
+
+    // Implement a Queue class with methods enqueue (add element), dequeue (remove element), and front (view the first element).
+
+
+    class Queue {
+      constructor() {
+        this.items = []
+      }
+      // Add an element to the end of the queue
+      enqueue(item) {
+        this.items.push(item)
+      }
+      // Remove and return the first element from the queue
+      dequeue() {
+        return this.items.shift()
+      }
+      // Display all elements in the queue
+      display() {
+        for (let i = 0; i < this.items.length; i++) {
+          console.log(this.items[i])
+        }
+      }
+    }
+
+    let queue = new Queue()
+    queue.enqueue(100)
+    queue.enqueue(200)
+    queue.enqueue(300)
+    queue.enqueue(400)
+    queue.enqueue(500)
+
+    console.log(queue.items)
+    console.log('Original Queue:')
+    queue.display()
+
+    queue.dequeue()
+    queue.dequeue()
+    console.log('After removing elements:')
+    queue.display()
+    console.log('')
+
+
+
+
+
+
+
+    // Use the Queue class to simulate a simple printer queue where print jobs are added to the queue and processed in order.
+
+
+    // Process the next print job from the queue
+    function processNextJob(array) {
+      let queue = new Queue()
+      queue.enqueue(...array)
+
+      // console.log(queue.items)
+      if (queue.items[0] == undefined) {
+        console.log('No more jobs to process')
+        return
+      }
+      console.log(`Processing job ${queue.items[0]}`)
+
+      setTimeout(() => {
+
+        console.log(`Finished processing job ${array[0]}`)
+        array.shift()
+        this.processNextJob(array)
+      }, array[0])
+    }
+
+    // processNextJob([1000, 1100, 1200])
+
+
+
+
+
+
+
+
+    // Implement a TreeNode class to represent a node in a binary tree with properties value , left , and right.
+
+
+    class TreeNode1 {
+      constructor(value) {
+        this.value = value
+        this.left = null
+        this.right = null
+      }
+      // Insert a value into the binary tree
+      insert(value) {
+        let newNode = new TreeNode1(value)
+        if (value < this.value) {
+          if (!this.left) {
+            this.left = newNode
+          } else {
+            this.left.insert(value)
+          }
+        } else {
+          if (!this.right) {
+            this.right = newNode
+          } else {
+            this.right.insert(value)
+          }
+        }
+      }
+      // Find the minimum value in the binary tree
+      findMin() {
+        if (!this.left) {
+          return this.value
+        } else {
+          return this.left.findMin()
+        }
+      }
+    }
+    let tree = new TreeNode1(10)
+
+    tree.insert(5)
+    tree.insert(15)
+    tree.insert(3)
+    tree.insert(7)
+    tree.insert(13)
+    tree.insert(17)
+    console.log('Binary Tree:')
+    console.log(tree)
+    console.log('')
+
+    console.log('Minimum value:', tree.findMin())
+
+
+
+
+
+
+    class TreeNode {
+      constructor(value) {
+        this.value = value
+        this.left = null
+        this.right = null
+      }
+    }
+
+    const root = new TreeNode(1)
+    root.left = new TreeNode(2)
+    root.left.left = new TreeNode(4)
+    root.right = new TreeNode(3)
+    root.right.right = new TreeNode(5)
+
+    console.log(root)
+    console.log('')
+
+
+
+
+
+
+
+
+    // Implement a BinaryTree class with methods for inserting values and performing in-order traversal to display nodes.
+
+    class BinaryTree {
+      constructor() {
+        this.root = null
+      }
+      // Insert a value into the binary tree
+      insert(value) {
+        const newNode = new TreeNode(value)
+
+        if (!this.root) {
+          this.root = newNode
+        } else {
+          this._insertNode(this.root, newNode)
+        }
+      }
+      _insertNode(node, newNode) {
+        if (newNode.value < node.value) {
+          if (!node.left) {
+            node.left = newNode
+          } else {
+            this._insertNode(node.left, newNode)
+          }
+        } else {
+          if (!node.right) {
+            node.right = newNode
+          } else {
+            this._insertNode(node.right, newNode)
+          }
+        }
+      }
+
+      // Perform in-order traversal to display nodes
+      inOrderTraversal() {
+        this._inOrderTraversal(this.root)
+      }
+      _inOrderTraversal(node) {
+        if (node) {
+          this._inOrderTraversal(node.left)
+          console.log(node.value)
+          this._inOrderTraversal(node.right)
+        }
+      }
+
+      // Check if a value exists in the binary tree
+      search(value) {
+        return this._searchNode(this.root, value)
+      }
+      _searchNode(node, value) {
+        if (!node) {
+          return false
+        }
+        if (value < node.value) {
+          return this._searchNode(node.left, value)
+        } else if (value > node.value) {
+          return this._searchNode(node.right, value)
+        } else {
+          return true
+        }
+      }
+    }
+
+    let binaryTree = new BinaryTree()
+    binaryTree.insert(10)
+    binaryTree.insert(5)
+    binaryTree.insert(15)
+    binaryTree.insert(3)
+    binaryTree.insert(7)
+    binaryTree.insert(13)
+    binaryTree.insert(17)
+
+
+    console.log(binaryTree.root)
+
+    console.log('Binary Tree:')
+    binaryTree.inOrderTraversal()
+    console.log('Search 10:', binaryTree.search(10))
+
+
+
+
+
+
+
+
+
+
+    // Implement a Graph class with methods to add vertices, add edges, and perform a Breadth-first search(BFS).
+
+    // Use the Graph class to represent a simple network and perform BFS to find the shortest path between two nodes.
 
   </script>
 </body>
